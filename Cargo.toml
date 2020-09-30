@@ -3,6 +3,11 @@ name = "flandres"
 version = "0.1.0"
 authors = ["MoAlyousef <mohammed.alyousef@neurosrg.com>"]
 edition = "2018"
+repository = "https://github.com/MoAlyousef/flandres"
+description = "fltk widgets adapted for Android"
+license = "MIT"
+readme = "../README.md"
+categories = ["gui"]
 
 [dependencies]
 fltk = "0.9"
