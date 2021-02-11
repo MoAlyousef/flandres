@@ -1,14 +1,14 @@
 //! # flandres
 //! fltk widgets adapted for Android.
-//! 
+//!
 //! This crate provides public wrapper functions which return fltk widgets. These widgets are styled and adapted to Android screen resolution.
 //!
 //! # Usage
 //! Add flandres to your fltk applications.
 //! ```toml
 //! [dependencies]
-//! fltk = "0.9"
-//! flandres = "0.1"
+//! fltk = "0.14"
+//! flandres = "0.2"
 //! ```
 //!
 //! ```rust
@@ -29,50 +29,41 @@ pub fn window() -> window::Window {
 }
 
 /// Returns a widget styled and adapted to Android screen resolution
-pub fn widget<W: fltk::WidgetExt>(x: i32, y: i32, w: i32, h: i32, label: &str) -> W {
-    let mut w = W::new(
-        (x - w/2) as i32,
-        (y - h/2) as i32,
-        w * 2,
-        h * 2,
-        label,
-    );
+pub fn widget<W: fltk::WidgetExt + WidgetBase>(x: i32, y: i32, w: i32, h: i32, label: &str) -> W {
+    let mut w = W::new((x - w / 2) as i32, (y - h / 2) as i32, w * 2, h * 2, label);
     w.set_label_size(36);
     w.clear_visible_focus();
     w.set_frame(FrameType::RFlatBox);
-    w.set_selection_color(Color::from_u32(0x1d0c6b));
+    w.set_selection_color(Color::from_u32(0x12005e));
     w.set_label_color(Color::White);
-    w.set_color(Color::from_u32(0x311B92));
+    w.set_color(Color::from_u32(0x4a148c));
     w
 }
 
 /// Returns an input or output widget styled and adapted to Android screen resolution
-pub fn inout_widget<IO: fltk::InputExt>(x: i32, y: i32, w: i32, h: i32, label: &str) -> IO {
-    let mut w = IO::new(
-        (x - w/2) as i32,
-        (y - h/2) as i32,
-        w * 2,
-        h * 2,
-        label,
-    );
-    w.set_frame(FrameType::RoundedBox);
+pub fn inout_widget<IO: fltk::WidgetBase + fltk::InputExt>(
+    x: i32,
+    y: i32,
+    w: i32,
+    h: i32,
+    label: &str,
+) -> IO {
+    let mut w = IO::new((x - w / 2) as i32, (y - h / 2) as i32, w * 2, h * 2, label);
     w.set_label_size(36);
     w.set_text_size(36);
     w
 }
 
 /// Returns a widget implementing DisplayExt (TextDisplay, TextEditor) styled and adapted to Android screen resolution
-pub fn display_widget<Disp: fltk::DisplayExt>(x: i32, y: i32, w: i32, h: i32, label: &str) -> Disp {
-    let mut w = Disp::new(
-        (x - w/2) as i32,
-        (y - h/2) as i32,
-        w * 2,
-        h * 2,
-        label,
-    );
-    w.set_frame(FrameType::RoundedBox);
+pub fn display_widget<Disp: fltk::WidgetBase + fltk::DisplayExt>(
+    x: i32,
+    y: i32,
+    w: i32,
+    h: i32,
+    label: &str,
+) -> Disp {
+    let mut w = Disp::new((x - w / 2) as i32, (y - h / 2) as i32, w * 2, h * 2, label);
     w.set_label_size(36);
     w.set_text_size(36);
     w
 }
-

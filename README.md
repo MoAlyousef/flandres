@@ -7,8 +7,8 @@ This crate provides public wrapper functions which return fltk widgets. These wi
 Add flandres to your fltk applications.
 ```toml
 [dependencies]
-fltk = "0.9"
-flandres = "0.1"
+fltk = "0.14"
+flandres = "0.2"
 ```
 
 ```rust
