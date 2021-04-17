@@ -1,6 +1,6 @@
 [package]
 name = "flandres"
-version = "0.2.1"
+version = "0.3.0"
 authors = ["MoAlyousef <mohammed.alyousef@neurosrg.com>"]
 edition = "2018"
 repository = "https://github.com/MoAlyousef/flandres"
@@ -10,4 +10,4 @@ readme = "./README.md"
 categories = ["gui"]
 
 [dependencies]
-fltk = "0.15"
+fltk = "1"
