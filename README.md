@@ -7,12 +7,13 @@ This crate provides public wrapper functions which return fltk widgets. These wi
 Add flandres to your fltk applications.
 ```toml
 [dependencies]
-fltk = "0.15"
-flandres = "0.2"
+fltk = "1"
+flandres = "0.3"
 ```
 
 ```rust
+    use fltk::{prelude::*, *};
     let mut win = flandres::window();
-    let _inp = flandres::inout_widget::<fltk::input::Input>(200, 200, 200, 100, "");
-    let _but: fltk::button::Button = flandres::widget(200, 600, 200, 100, "Click Me!");
+    let _inp = flandres::inout_widget::<input::Input>(200, 200, 200, 100, "");
+    let _but: button::Button = flandres::widget(200, 600, 200, 100, "Click Me!");
 ```
